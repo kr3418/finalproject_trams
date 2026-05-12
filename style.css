@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+:root {
+  --bg-dark: #111827;
+  --panel-bg: rgba(248, 247, 244, 0.94);
+  --panel-border: rgba(255, 255, 255, 0.55);
+  --text-main: #111827;
+  --text-muted: #5f6673;
+  --shadow-soft: 0 14px 38px rgba(15, 23, 42, 0.22);
+
+  --accent-blue: #3b82f6;
+  --accent-blue-soft: rgba(59, 130, 246, 0.12);
+  --accent-blue-border: rgba(59, 130, 246, 0.28);
+
+  --manhattan: #ff4fa3;
+  --bronx: #2a9d8f;
+  --brooklyn: #457b9d;
+  --queens: #f4a261;
+  --highlight: #00e5ff;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-main);
+  overflow: hidden;
+  letter-spacing: -0.2px;
+}
+
+/* Map */
+#map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+}
+
+/* Title bar */
+#titleBar {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+ background: linear-gradient(
+  135deg,
+  rgba(30, 41, 59, 0.92),
+  rgba(37, 99, 235, 0.78)
+);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 999px;
+  z-index: 2;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+#titleBar h2 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  font-weight: 700;
+}
+
+/* Legend panel */
+#legendPanel {
+  position: absolute;
+  top: 95px;
+  left: 22px;
+  width: 270px;
+  background: var(--panel-bg);
+  padding: 18px;
+  border-radius: 20px;
+  z-index: 2;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--panel-border);
+  border-top: 4px solid var(--accent-blue);
+}
+
+#legendPanel h3 {
+  margin: 0 0 14px 0;
+  font-size: 15px;
+  color: var(--text-main);
+  letter-spacing: 0.2px;
+}
+
+.legend-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  background: rgba(243, 244, 246, 0.9);
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  padding: 12px 13px;
+  margin-bottom: 9px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 650;
+  color: #1f2937;
+  text-align: left;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.legend-item:hover {
+  background: var(--accent-blue-soft);
+  border-color: var(--accent-blue-border);
+  transform: translateX(4px);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.14);
+}
+
+.line-color {
+  width: 26px;
+  height: 7px;
+  border-radius: 999px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.manhattan {
+  background: var(--manhattan);
+}
+
+.bronx {
+  background: var(--bronx);
+}
+
+.brooklyn {
+  background: var(--brooklyn);
+}
+
+.queens {
+  background: var(--queens);
+}
+
+/* Intro modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.62);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: min(520px, 88%);
+  background: var(--panel-bg);
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.modal-content h1 {
+  margin-top: 0;
+  font-size: 28px;
+  color: #111;
+}
+
+.modal-content p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #333;
+}
+
+#closeModal {
+  margin-top: 12px;
+  width: 100%;
+  background: #111;
+  color: white;
+  border: none;
+  padding: 13px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#closeModal:hover {
+  background: #333;
+}
+
+/* Right info panel */
+.info-panel {
+  position: absolute;
+  top: 95px;
+  right: 20px;
+  width: 340px;
+  max-height: calc(100vh - 125px);
+  overflow-y: auto;
+  background: var(--panel-bg);
+  z-index: 3;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.24);
+  border-top: 4px solid var(--accent-blue);
+}
+
+.info-panel.hidden {
+  display: none;
+}
+
+.close-panel {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 26px;
+  cursor: pointer;
+  color: #555;
+}
+
+.close-panel:hover {
+  color: #000;
+}
+
+.info-panel h2 {
+  margin: 0 30px 12px 0;
+  font-size: 22px;
+  color: #111;
+}
+
+.info-panel img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  background: #eee;
+}
+
+.info-panel p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #333;
+}
+
+.section-buttons {
+  display: grid;
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.section-buttons button,
+.back-button {
+  border: 1px solid rgba(203, 213, 225, 0.7);
+  background: rgba(248, 250, 252, 0.95);
+  padding: 11px 12px;
+  border-radius: 9px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 14px;
+}
+
+.section-buttons button:hover,
+.back-button:hover {
+background: var(--accent-blue-soft);
+border-color: var(--accent-blue-border);
+}
+
+/* Section markers */
+.section-marker {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 3px solid white;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+
+}
+.section-marker:hover {
+  transform: scale(1.25);
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 5px var(--accent-blue-soft),
+              0 8px 18px rgba(15, 23, 42, 0.28);
+}
+.section-marker.transfer,
+.section-marker.destination,
+.section-marker.terminal {
+  background: #111;
+}
+
+/* Popup styling */
+.mapboxgl-popup-content {
+  background: rgba(248, 247, 244, 0.97);
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+  border: 1px solid rgba(203, 213, 225, 0.55);
+  color: var(--text-main);
+  border-top: 4px solid var(--accent-blue);
+}
+
+.mapboxgl-popup-close-button {
+  font-size: 18px;
+  padding-right: 6px;
+  color: var(--text-muted);
+}
+
+.mapboxgl-popup-content h3 {
+  margin: 0 0 8px 0;
+  font-size: 15px;
+}
+
+.mapboxgl-popup-content p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* Subway route pills */
+.route-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
+/* Blue lines */
+.route-a,
+.route-c,
+.route-e {
+  background: #0039A6;
+}
+
+/* Yellow lines */
+.route-n,
+.route-q,
+.route-r,
+.route-w {
+  background: #FCCC0A;
+  color: black;
+}
+
+/* Purple line */
+.route-7 {
+  background: #B933AD;
+}
+
+/* Red lines */
+.route-1,
+.route-2,
+.route-3 {
+  background: #EE352E;
+}
+
+/* Green lines */
+.route-4,
+.route-5,
+.route-6 {
+  background: #00933C;
+}
+
+/* Orange lines */
+.route-b,
+.route-d,
+.route-f,
+.route-m {
+  background: #FF6319;
+}
+
+/* Gray line */
+.route-l {
+  background: #A7A9AC;
+  color: black;
+}
+
+/* Brown lines */
+.route-j,
+.route-z {
+  background: #996633;
+}
+
+/* Lime green line */
+.route-g {
+  background: #6CBE45;
+}

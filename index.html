@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NYC Tram Potential Map</title>
+
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Intro Modal -->
+  <div id="introModal" class="modal">
+    <div class="modal-content">
+      <h1>NYC Tram Potential Map</h1>
+      <p>
+        This project explores how modern tram lines could complement New York City’s existing MTA network. 
+        Rather than replacing subway service, trams can function as a “missing middle” transit mode that improves
+        local access and crosstown connections, providing higher-capacity and more reliable service along congested
+        and overcrowded bus corridors. 
+      </p>
+      <p>
+       New York city is already beginning to reclaim street space through initiatives like busways (i.e 14 street 
+       and soon Flatbush avenue). In many cases, modern tram infrastructure could represent a long term evolution of 
+       these investments by introducing higher quality mobility for surface transit. 
+      </p>
+      <button id="closeModal">Explore the Map</button>
+    </div>
+  </div>
+
+  <!-- Title Bar -->
+  <div id="titleBar">
+    <h2>Potential Tram Lines in NYC</h2>
+  </div>
+
+  <!-- Side Legend -->
+  <div id="legendPanel">
+    <h3>Proposed Tram Lines</h3>
+    <h6>Click on a line to view details</h6>
+
+    <button class="legend-item" id="manhattanLine">
+      <span class="line-color manhattan"></span>
+      Manhattan Flagship Line
+    </button>
+
+    <button class="legend-item" id="bronxLine">
+      <span class="line-color bronx"></span>
+      Bronx Crosstown Line
+    </button>
+
+    <button class="legend-item" id="brooklynLine">
+      <span class="line-color brooklyn"></span>
+      Brooklyn Line
+    </button>
+
+    <button class="legend-item" id="queensLine">
+    <span class="line-color queens"></span>
+    Queens Line
+    </button>
+
+  </div>
+  <!-- Right Info Panel -->
+ <div id="infoPanel" class="info-panel hidden">
+    <button id="closeInfoPanel" class="close-panel">×</button>
+    <div id="infoPanelContent"></div>
+ </div>
+
+  <!-- Map Container -->
+  <div id="map"></div>
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
