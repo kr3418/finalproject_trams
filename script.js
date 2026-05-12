@@ -148,8 +148,7 @@ function showBronxPanel() {
 
     <p>
       The Bronx Crosstown Line would follow the Fordham Road / Pelham Parkway corridor,
-      building on one of the Bronx’s busiest east-west travel markets. Rather than replacing
-      the Bx12, the tram would provide a higher-capacity surface transit spine connecting
+      building on one of the Bronx’s busiest east-west travel markets. The tram would provide a higher-capacity surface transit spine connecting
       subway, bus, Metro-North, park, hospital, university, and shopping destinations.
     </p>
 
