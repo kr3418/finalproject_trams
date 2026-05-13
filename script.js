@@ -116,7 +116,12 @@ function showManhattanPanel() {
       would help fill a north-south transit gap on the East Side.
     </p>
 
-    <p><strong>Click on a section to find out more.</strong></p>
+    <p>
+  <strong>
+    Click on a section to learn more and see points of interest
+    <span class="inline-marker"></span>
+  </strong>
+</p>
 
     <div class="section-buttons">
       <button id="broadwaySection">Broadway Section</button>
@@ -152,7 +157,12 @@ function showBronxPanel() {
       subway, bus, Metro-North, park, hospital, university, and shopping destinations.
     </p>
 
-    <p><strong>Click on a section to find out more.</strong></p>
+    <p>
+  <strong>
+    Click on a section to learn more and see points of interest
+    <span class="inline-marker"></span>
+  </strong>
+</p>
 
     <div class="section-buttons">
       <button id="westBronxSection">West Bronx Section</button>
@@ -184,7 +194,12 @@ function showBrooklynPanel() {
       southern Brooklyn neighborhoods that are farther from subway service.
     </p>
 
-    <p><strong>Click on a section to find out more.</strong></p>
+   <p>
+  <strong>
+    Click on a section to learn more and see points of interest
+    <span class="inline-marker"></span>
+  </strong>
+</p>
 
     <div class="section-buttons">
       <button id="uticaSection">Utica Avenue Section</button>
@@ -216,7 +231,12 @@ function showQueensPanel() {
       institutional destinations along a continuous surface transit corridor.
     </p>
 
-    <p><strong>Click on a section to find out more.</strong></p>
+ <p>
+  <strong>
+    Click on a section to learn more and see points of interest
+    <span class="inline-marker"></span>
+  </strong>
+</p>
 
     <div class="section-buttons">
       <button id="flushingSection">Flushing Section</button>
