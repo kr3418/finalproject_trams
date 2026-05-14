@@ -49,7 +49,7 @@ The subway is the backbone of the city's transportation system, but the reality 
 
 -`index.html` - Main HTML file
 
--`style.css` - Stylesheet customizing map, intro modal, legend, corriodors etc.
+-`style.css` - Stylesheet customizing map, intro modal, legend, corridors etc.
 
 -`script.js` - Javascript file containing map configuration and interactive features
 
