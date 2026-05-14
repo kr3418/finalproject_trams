@@ -879,8 +879,6 @@ subway service, LIRR, AirTrain JFK, and the Jamaica bus hub.
 }
 
 
-
-
 // Highlight selected Manhattan section
 function highlightManhattanSection(sectionName) {
   const filter = ["==", ["get", "section"], sectionName];
@@ -1311,7 +1309,7 @@ map.addLayer({
 map.moveLayer("queens-section-highlight-bg");
 map.moveLayer("queens-section-highlight-dash");
 
-    // Change cursor on tram hover
+// Change cursor on tram hover
   const tramLayers = [
     "tram-manhattan-layer",
     "tram-bronx-layer",
