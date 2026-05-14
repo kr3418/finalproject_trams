@@ -26,7 +26,7 @@ Tram infrastructure could:
 
 -And create more people-focused corridors
 
-The subway is the backbone of the city's transportation system, but the reality is that it is mostly designed to get people into and out of midtown. There are many corridors and inter-borough crosstown connections that deserve higher quality transit options that the current bus system simply cannot provide. Downtown Flushing and Downtown Jamaica may never get a direct subway connection due to astronomically high subway construction costs; a tram is much more feasible for this type of connection.
+The subway is the backbone of the city's transportation system, but the reality is that it is mostly designed to get people into and out of midtown. There are many corridors and inter-borough crosstown connections that deserve higher quality transit options that the current bus system simply cannot provide. Downtown Flushing to Downtown Jamaica may never get a direct subway connection due to astronomically high subway construction costs; a tram is much more feasible for this type of connection.
 
 
 ### Features and Framework of the project
